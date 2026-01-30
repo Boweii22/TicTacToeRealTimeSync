@@ -8,12 +8,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { toast } from 'sonner';
 import { User } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Globe, BarChart3, History, Search, Hash, ArrowRight, Sparkles } from 'lucide-react';
+import { Users, Globe, BarChart3, History, Search, Hash, ArrowRight, Sparkles, RotateCcw } from 'lucide-react';
 import ParticleBackground from '@/components/ui/ParticleBackground';
 
 const HomePage = () => {
   const navigate = useNavigate();
-  const { player, setPlayer } = usePlayer();
+  const { player, setPlayer, clearPlayer } = usePlayer();
   const [username, setUsername] = useState('');
   const [loading, setLoading] = useState(false);
   const [showJoinDialog, setShowJoinDialog] = useState(false);
@@ -64,6 +64,17 @@ const HomePage = () => {
   const handleOnlineGame = () => {
     if (!player) return;
     navigate('/lobby');
+  };
+
+  const handleReset = () => {
+    clearPlayer();
+    setUsername('');
+    setGameCode('');
+    setSearchQuery('');
+    setSearchResults([]);
+    setSelectedPlayer(null);
+    setPlayerGames([]);
+    toast.success('Profile reset. Start fresh!');
   };
 
   const handleJoinByCode = async () => {
@@ -297,6 +308,15 @@ const HomePage = () => {
               >
                 <Search className="h-4 w-4 mr-2" />
                 Search
+              </Button>
+              <Button
+                variant="ghost"
+                onClick={handleReset}
+                className="flex-1 text-white/60 hover:text-white hover:bg-white/5"
+                data-testid="reset-profile-btn"
+              >
+                <RotateCcw className="h-4 w-4 mr-2" />
+                Reset
               </Button>
               <Button
                 variant="ghost"
