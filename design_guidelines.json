@@ -1,0 +1,126 @@
+{
+  "identity": {
+    "name": "E1",
+    "role": "Creative Designer",
+    "archetype": "The Performance Pro (Archetype 2)",
+    "vibe": "Tactical Minimalism, E-sports Precision, High-Contrast"
+  },
+  "typography": {
+    "primary_font": "Outfit",
+    "secondary_font": "Manrope",
+    "mono_font": "JetBrains Mono",
+    "google_fonts_import": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600&family=Outfit:wght@400;500;700;900&display=swap",
+    "usage": {
+      "headings": "font-['Outfit'] font-black tracking-tight uppercase",
+      "body": "font-['Manrope'] tracking-wide",
+      "ui_labels": "font-['Manrope'] font-semibold tracking-wider uppercase text-xs",
+      "data_display": "font-['JetBrains_Mono']"
+    }
+  },
+  "colors": {
+    "theme_strategy": "Dark Mode Primary (The Performance Pro)",
+    "palette": {
+      "background": {
+        "default": "#0A0A0A",
+        "paper": "#111111",
+        "subtle": "#1A1A1A"
+      },
+      "foreground": {
+        "default": "#FFFFFF",
+        "muted": "#A1A1AA",
+        "inverse": "#000000"
+      },
+      "brand": {
+        "primary": "#FFFFFF",
+        "accent_x": "#FF3B30",
+        "accent_o": "#007AFF",
+        "success": "#34C759",
+        "warning": "#FFCC00",
+        "error": "#FF3B30"
+      },
+      "border": {
+        "default": "#27272A",
+        "active": "#FFFFFF"
+      }
+    },
+    "tailwind_config_extension": {
+      "colors": {
+        "obsidian": "#0A0A0A",
+        "charcoal": "#111111",
+        "electric-red": "#FF3B30",
+        "volt-blue": "#007AFF"
+      }
+    }
+  },
+  "visual_enhancers": {
+    "surface_styles": {
+      "glass_panel": "bg-black/60 backdrop-blur-xl border border-white/10 shadow-2xl",
+      "neumorphic_button": "bg-[#111111] shadow-[4px_4px_10px_#090909,-4px_-4px_10px_#191919] border border-white/5 active:shadow-[inset_4px_4px_10px_#090909,inset_-4px_-4px_10px_#191919]",
+      "tactical_border": "border border-white/20 hover:border-white/60 transition-colors duration-300"
+    },
+    "animations": {
+      "hover_lift": "hover:-translate-y-1 transition-transform duration-200 ease-out",
+      "glow_pulse": "animate-pulse shadow-[0_0_15px_rgba(255,255,255,0.1)]"
+    }
+  },
+  "layout_strategies": {
+    "landing_page": {
+      "grid": "The Tetris Grid (Mode A)",
+      "description": "Asymmetric layout. Hero section uses 'Black and White Podium' image as a subtle backdrop with heavy overlay. Large typography."
+    },
+    "dashboard": {
+      "grid": "The Bento Grid (Mode B)",
+      "description": "High density. Stats cards, Match History list, and Player Profile packed tightly with 1px borders."
+    },
+    "game_board": {
+      "style": "Centered Arena",
+      "description": "Absolute center. The board is the hero. Minimal distractions. Replay controls float at the bottom."
+    }
+  },
+  "components": {
+    "GameCell": {
+      "path": "/app/frontend/src/components/game/GameCell.js",
+      "style": "h-24 w-24 md:h-32 md:w-32 flex items-center justify-center text-6xl font-['Outfit'] font-black cursor-pointer transition-all duration-200 hover:bg-white/5 border border-white/10",
+      "interaction": "Pressing creates a 'tactile' dip (scale-95). X is Electric Red, O is Volt Blue."
+    },
+    "ReplayControls": {
+      "path": "/app/frontend/src/components/game/ReplayControls.js",
+      "style": "Fixed bottom or floating panel. Glassmorphism style. Uses Shadcn Slider for timeline.",
+      "features": ["Play/Pause", "Step Back/Forward", "Timeline Slider", "Speed Toggle"]
+    },
+    "StatsCard": {
+      "path": "/app/frontend/src/components/dashboard/StatsCard.js",
+      "style": "p-6 bg-charcoal border border-white/5 rounded-xl flex flex-col gap-2 hover:border-white/20 transition-colors"
+    }
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1693763824929-bd6b4b959e2b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwyfHxtaW5pbWFsaXN0JTIwZXNwb3J0cyUyMHRyb3BoeSUyMGNvbmNlcHR8ZW58MHx8fHwxNzY5NTA5MzM1fDA&ixlib=rb-4.1.0&q=85",
+      "description": "Abstract black and white podium/arena for the main landing hero background. Apply 80% black overlay."
+    },
+    "strategy_section": {
+      "url": "https://images.pexels.com/photos/6689072/pexels-photo-6689072.jpeg",
+      "description": "Chess/Strategy concept for the 'About' or 'Features' section background."
+    },
+    "abstract_texture": {
+      "url": "https://images.unsplash.com/photo-1635829771690-f2323d3bfea7?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGdlb21ldHJpYyUyMHN0cmF0ZWd5JTIwZ2FtZSUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzY5NTA5MzMzfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Colorful abstract for 'Creative Mode' or specific game states if needed (use sparingly)."
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lucide-react' and 'recharts' if not present. Import the Google Fonts in 'index.css'.",
+    "2. THEME: Enforce Dark Mode by default. Add 'dark' class to the root HTML element or body.",
+    "3. COMPONENTS: Use Shadcn UI for all 'frame' elements (Dialogs, Forms, Dropdowns). Use Custom CSS/Tailwind for the 'Game Board' to ensure fluid animations.",
+    "4. ANIMATION: Use 'framer-motion' for X/O appearance (scale-in + bounce) and for the Win Line drawing.",
+    "5. REPLAY: The Replay System must use a 'Command Pattern' approach visually. Show a list of moves on the side, highlight the active move.",
+    "6. ACCESSIBILITY: Ensure 'Electric Red' and 'Volt Blue' have sufficient contrast against the 'Obsidian' background. Add 'aria-label' to all grid cells.",
+    "7. TESTING: Add 'data-testid' to every interactive element (cells, buttons, inputs)."
+  ],
+  "universal_guidelines": [
+    "Avoid gradients for the main background; use solid Obsidian (#0A0A0A) or subtle noise texture.",
+    "Do not use 'Inter' for headings. Use 'Outfit'.",
+    "Spacing should be generous (p-8, p-12) in the layout, but tight (gap-1, gap-2) within the Game Board grid for cohesion.",
+    "All buttons must have a 'hover' and 'active' state defined.",
+    "Use 'sonner' for game notifications (e.g., 'Player X Wins!')."
+  ]
+}
